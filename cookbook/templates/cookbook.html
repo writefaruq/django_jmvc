@@ -1,0 +1,16 @@
+<!DOCTYPE HTML>
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html lang="en">
+    <head>
+        <title>cookbook</title>
+        <link type="text/css" href="{{ STATIC_URL }}css/cookbook.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Welcome to Cookbook powered by Django-JMVC</h1>
+        <p> Now create a recipe </p>
+        <ul id='recipes'></ul>
+        <form id='create' action=''></form>
+        <script type='text/javascript' src='{{ STATIC_PREFIX }}js/steal/steal.js?cookbook'> </script>
+    </body>
+</html>

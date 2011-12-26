@@ -9,6 +9,9 @@ urlpatterns = patterns('',
     url(r'^$', 'cookbook.views.home', name='home'),
     # url(r'^msgboard/', include('msgboard.foo.urls')),
 
+    # Cookbook REST API
+    url(r'^api/cookbook/', include('cookbook.api.urls')),
+
     # Uncomment the admin/doc line below to enable admin documentation:
      url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

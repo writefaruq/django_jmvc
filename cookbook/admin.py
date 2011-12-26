@@ -1,3 +1,8 @@
 from django.contrib import admin
+from cookbook.models import Recipe
 
-# add models to admin
+
+class RecipeAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Recipe, RecipeAdmin)

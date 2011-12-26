@@ -1,7 +1,7 @@
 steal(
 	'./cookbook.css', 			// application CSS file
 	'./models/models.js',		// steals all your models
-	'./fixtures/fixtures.js',	// sets up fixtures for your models
+	//'./fixtures/fixtures.js',	// sets up fixtures for your models
 	'cookbook/recipe/create',
 	'cookbook/recipe/list',
 	function(){					// configure your application

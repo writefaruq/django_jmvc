@@ -2,3 +2,4 @@
 cookbook.db
 cookbook/static/steal
 cookbook/static/jquery
+.idea/*

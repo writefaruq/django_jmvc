@@ -9,11 +9,53 @@ steal('jquery/model', function(){
 $.Model('Cookbook.Models.Recipe',
 /* @Static */
 {
-	findAll: "/recipes.json",
-  	findOne : "/recipes/{id}.json", 
-  	create : "/recipes.json",
- 	update : "/recipes/{id}.json",
-  	destroy : "/recipes/{id}.json"
+	//findAll: "GET /api/cookbook/recipes.json",
+    findAll: function(params, success, error){
+        return $.ajax({
+            url : "/api/cookbook/recipes.json",
+            dataType : "jsonp",
+            data: params,
+            success : success,
+            error : error
+        });
+    },
+    findOne :  function(params, success, error){
+        return $.ajax({
+            url : "/api/cookbook/recipes/{id}.json",
+            dataType : "jsonp",
+            data: params,
+            success : success,
+            error : error
+        });
+    },
+
+  	create : function(params, success, error){
+          return $.ajax({
+              url : "/api/cookbook/recipes.json",
+              dataType : "jsonp",
+              data: params,
+              success : success,
+              error : error
+          });
+      },
+ 	update : function(params, success, error){
+         return $.ajax({
+             url : "/api/cookbook/recipes/{id}.json",
+             dataType : "jsonp",
+             data: params,
+             success : success,
+             error : error
+         });
+     },
+  	destroy : function(params, success, error){
+          return $.ajax({
+              url : "/api/cookbook/recipes/{id}.json",
+              dataType : "jsonp",
+              data: params,
+              success : success,
+              error : error
+          });
+      }
 },
 /* @Prototype */
 {});

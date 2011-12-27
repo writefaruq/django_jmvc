@@ -13,7 +13,8 @@ $.Model('Cookbook.Models.Recipe',
     findAll: function(params, success, error){
         return $.ajax({
             url : "/api/cookbook/recipes.json",
-            dataType : "jsonp",
+            type: 'get',
+            dataType : "json recipe.models",
             data: params,
             success : success,
             error : error
@@ -22,7 +23,8 @@ $.Model('Cookbook.Models.Recipe',
     findOne :  function(params, success, error){
         return $.ajax({
             url : "/api/cookbook/recipes/{id}.json",
-            dataType : "jsonp",
+            type: 'GET',
+            dataType : "json recipe.models",
             data: params,
             success : success,
             error : error
@@ -30,18 +32,12 @@ $.Model('Cookbook.Models.Recipe',
     },
 
   	create : function(params, success, error){
-          return $.ajax({
-              url : "/api/cookbook/recipes.json",
-              dataType : "jsonp",
-              data: params,
-              success : success,
-              error : error
-          });
+          return  $.post("/api/cookbook/recipes.json", params, success,"json");
       },
  	update : function(params, success, error){
          return $.ajax({
              url : "/api/cookbook/recipes/{id}.json",
-             dataType : "jsonp",
+             dataType : "json contact.models",
              data: params,
              success : success,
              error : error
@@ -50,7 +46,7 @@ $.Model('Cookbook.Models.Recipe',
   	destroy : function(params, success, error){
           return $.ajax({
               url : "/api/cookbook/recipes/{id}.json",
-              dataType : "jsonp",
+              dataType : "json",
               data: params,
               success : success,
               error : error

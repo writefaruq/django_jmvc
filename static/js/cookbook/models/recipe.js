@@ -9,10 +9,9 @@ steal('jquery/model', function(){
 $.Model('Cookbook.Models.Recipe',
 /* @Static */
 {
-	//findAll: "GET /api/cookbook/recipes.json",
     findAll: function(params, success, error){
         return $.ajax({
-            url : "/api/cookbook/recipes.json",
+            url : "/api/cookbook/recipes",
             type: 'get',
             dataType : "json recipe.models",
             data: params,
@@ -20,34 +19,36 @@ $.Model('Cookbook.Models.Recipe',
             error : error
         });
     },
-    findOne :  function(params, success, error){
+    findOne :  function(id, success, error){
         return $.ajax({
-            url : "/api/cookbook/recipes/{id}.json",
+            url : "/api/cookbook/recipes/" + id,
             type: 'GET',
             dataType : "json recipe.models",
-            data: params,
+            data: {},
             success : success,
             error : error
         });
     },
 
   	create : function(params, success, error){
-          return  $.post("/api/cookbook/recipes.json", params, success,"json");
+          return  $.post("/api/cookbook/recipes", params, success,"json");
       },
  	update : function(params, success, error){
          return $.ajax({
-             url : "/api/cookbook/recipes/{id}.json",
-             dataType : "json contact.models",
+             url : "/api/cookbook/recipes/" + params['id'],
+             dataType : "json recipe.models",
              data: params,
              success : success,
              error : error
          });
      },
-  	destroy : function(params, success, error){
+  	destroy : function(id, success, error){
+          //return $.post("/api/cookbook/recipes/"+id, {}, success);
           return $.ajax({
-              url : "/api/cookbook/recipes/{id}.json",
-              dataType : "json",
-              data: params,
+              url : "/api/cookbook/recipes/" + id,
+              type : 'DELETE',
+              dataType : "json recipe.models",
+              data: {},
               success : success,
               error : error
           });
